@@ -1,0 +1,184 @@
+01 -Découvrir la cryptographie et les certificats numériques
+1.	Objectifs de la cryptographie
+	La cryptographie se réfère à la science du secret adressant la conception et le développement des systèmes de chiffrements permettant de transformer un message intelligible en non intelligible.
+	La cryptanalyse désigne la science de l’analyse des systèmes de chiffrements permettant d’étudier et identifier les attaques contre ces systèmes.
+	Le chiffrement permet d’assurer la confidentialité ;
+	Le hachage permet d’assurer l’intégrité ;
+	La signature numérique permet d’assurer l’authenticité.
+ 
+2.	Techniques de chiffrement classiques
+
+Les deux éléments de base de toutes les techniques de chiffrement sont : 
+•	Chiffrement par substitution : une technique dans laquelle les lettres du texte en clair sont remplacées par d'autres lettres.
+•	Chiffrement par transposition : une technique dans laquelle les lettres du texte en clair sont permutées.
+3.	Définitions
+3.1	Terminologie de la sécurité informatique
+a.	La cryptographie
+La cryptographie est une discipline de l’informatique qui permet de protéger des messages jugés confidentiels. 
+Les quatre objectifs de la cryptographie sont :
+	L’authentification : consiste à s’assurer de l’'identité de la source et de la destination avant de commencer un échange de données. 
+	L’intégrité : consiste à s’assurer que les données envoyées n’ont pas été modifiées lors de la transmission.
+	La confidentialité : consiste à s’assurer que seules les personnes autorisées peuvent consulter les données. 
+	La non-répudiation : consiste à s'assurer qu'un message transmis entre deux personnes, ne peut être remis en cause par l'une des deux parties.
+b.	Terminologie générale
+	Une ressource: tout objet qui a une valeur pour une organisation et qui doit être protégé.
+	Une vulnérabilité: c’est une faiblesse d'un système qui pourrait être exploitée par une menace.
+	Une menace : un danger potentiel pour une ressource ou pour le fonctionnement du réseau.
+	Une attaque: c’est une action prise pour nuire à une ressource.
+	Un risque: c’est la possibilité de perte, altération, destruction ou autres conséquences négatives de la ressource d'une organisation. Le risque peut naître d'une seule ou plusieurs menaces ou de l'exploitation d’une vulnérabilité. 
+Un risque = une ressource + une menace + une vulnérabilité
+	Une contremesure: une protection qui atténue une menace potentielle ou un risque.
+
+c.	Type de pirates
+On distingue différents types de pirates existant dans le domaine informatique :
+	Les « hackers » : ils sont classés comme « des passionnés des réseaux ». Ils veulent seulement comprendre le fonctionnement des systèmes informatiques et tester à la fois leurs connaissances et leurs outils. 
+	Les « white hat hackers » (chapeaux blancs): ce sont des personnes qui réalisent des audits de sécurité afin d'assurer la protection des systèmes d'information d'une organisation.
+	Les « black hat hackers » (chapeaux noirs) : ce sont des personnes expérimentées qui agissent à des fins illégales comme le vol de données, le piratage des comptes, l’infiltration dans les systèmes, etc.
+	Les « Phreakers » : ce sont des personnes qui se spécialisent dans les attaques des systèmes téléphoniques. Ils agissent, en général, dans l’objectif d’effectuer des appels gratuits.
+	Les « Carders » : ce sont des personnes qui se spécialisent dans les attaques des systèmes de cartes à puces.
+
+d.	Les codes malveillants
+Les types courants des codes malveillants (Malware), qui peuvent être utilisés par les pirates, sont les suivants :
+	Virus: c’est un programme qui s'attache à un logiciel pour exécuter une fonction spécifique non souhaitée sur un ordinateur. 
+	Worms: ce sont des programmes autonomes qui exploitent des vulnérabilités connues dans le but de ralentir un réseau. 
+	Spyware : Les spywares, en général, ne se propagent pas automatiquement, mais ils s’installent sans autorisation. Ils sont programmés pour : 
+	recueillir des informations personnelles sur les utilisateurs ;
+	surveiller l'activité de navigation sur le Web pour détecter les caprices de l’utilisateur ;
+	la redirection des requêtes HTTP vers des sites de publicité préétablis. 
+	Trojan Horse (cheval de troie) : c'est un programme ayant deux caractéristiques :
+•	un comportement apparent utile à l'utilisateur.
+•	un comportement caché, malveillant conduisant, généralement, à un accès à la machine sur laquelle il est exécuté.
+Ransomwares : est un programme conçu pour bloquer l'accès à un système informatique, par le chiffrement de contenu, jusqu'à ce qu'une somme d'argent soit payée.
+
+
+
+3.2	Les différentes classifications de la cryptologie 
+
+ 
+
+3.2.1	La cryptographie classique
+a.	Le chiffrement par substitution
+Elle consiste à remplacer un caractère par une autre choisie d’une façon dynamique, déterminée par la clé de cryptage
+b.	Le chiffrement par transposition
+Cette méthode utilise, entre autres, le réarrangement de l'ordre des lettres suite à des règles bien définies.
+Exemple : Soit à crypter le texte  « ISTA BAB TIZIMI » avec la clé « 7514263 » en utilisant le cryptage par transposition. 
+Pour ce faire,  nous créons un tableau de la façon suivante :
+	La première ligne est constituée par les valeurs de la clé.
+	Nous complétons, ensuite, le tableau en le remplissant avec les lettres du message à chiffrer. Eventuellement, la dernière ligne peut être incomplète.
+Résultat :
+7	5	1	4	2	6	3
+I	S	T	A	B	A	B
+T	I	Z	I	M	I	
+Le résultat est la concaténation des caractères en suivant l’ordre des colonnes de 1 à 7 : TZBM BAIS IAII T
+3.2.2	La cryptographie moderne
+a.	Le chiffrement par blocs 
+Le chiffrement par blocs (block cipher) consiste à découper les données en blocs de taille, généralement, fixe (entre 32 et 512 bits), qui sont, ensuite, chiffrés les uns après les autres. L’idée générale du chiffrement par blocs peut être résumée comme suit :
+	1. Remplacer les caractères par un code binaire
+	2. Découper cette chaîne en blocs de longueur donnée
+	3. Chiffrer un bloc bit par bit en se basant sur une clé.
+	4. Recommencer, éventuellement, un certain nombre de fois l’opération 3.
+	5. Passer au bloc suivant.
+Une liste non-exhaustive des algorithmes de chiffrements par bloc inclut :
+	Digital Encryption Standard (DES)
+	Advanced Encryption Standard (AES)
+	Triple Digital Encryption Standard (3DES)
+	Blowfish
+	International Data Encryption Algorithm (IDEA)
+b.	Le chiffrement par flux 
+Le chiffrement par flux (stream cipher) consiste à agir en continu sur les données sans l’obligation de rassembler un bloc de données pour commencer l’opération. Ce type de chiffrement est, souvent, utilisé pour les communications en temps réel, puisqu’il a la particularité d’être plus rapide. Une liste non-exhaustive de chiffrements par bloc inclut les normes RC4 et SEAL.
+3.3	Chiffrement symétrique et asymétrique
+c.	Chiffrement symétrique
+•	Dans le chiffrement symétrique, la même clé est utilisée pour le chiffrement et le déchiffrement, d’où l’obligation que celle-ci reste confidentielle.
+ 
+Figure 11 : le chiffrement symétrique.
+•	Une liste non-exhaustive des algorithmes de chiffrements symétriques  inclut :
+	DES
+	3DES
+	AES
+	IDEA
+	RC2, RC4, RC5, RC6
+	Blowfish
+•	Les algorithmes de cryptage symétriques sont les plus utilisés pour la protection des données car il offre un temps rapide pour le traitement et un niveau de sécurité assez élevé en présence d’une clé d’une grande taille. Cependant, son vulnérabilité réside sur la méthode d’échanger la clé partagée. 
+d.	Chiffrement asymétrique
+•	Dans le chiffrement asymétrique (ou chiffrement à clés publiques), une clé différente est utilisée à la fois pour chiffrer et déchiffrer les données, et il est impossible de générer une clé à partir de l’autre.
+ 
+Figure 12 : le chiffrement asymétrique.
+•	Les algorithmes à chiffrement asymétrique incluent les suivants:
+	RSA: nommé suite à ses créateurs : Rivest, Shamir et Adleman. 
+	DH: DH (Diffie-Hellman) est un algorithme à chiffrement asymétrique qui permet à deux hôtes d'échanger des clés secrètes partagées sur un réseau non fiable. Ce protocole est souvent combiné avec des algorithmes symétriques tels que 3DES et AES.
+	DSA: l'algorithme de signature numérique développé par l'Agence de sécurité nationale des États-Unis.
+•	Les algorithmes asymétriques sont plus lents par rapport aux algorithmes symétriques. Elles sont, généralement, utilisées dans les cas de chiffrement à faible volume, tels que les signatures numériques et l'échange de clés.
+3.4	 Les fonctions de hachage
+Les fonctions de hachage sont des fonctions, à sens unique, utilisées pour assurer l’intégrité des données. En effet, une fonction de hachage traite un bloc de données qui peut être de très grande taille ou de nature diversifiée pour renvoyer une petite valeur de hachage, nommée « l'empreinte numérique » (message digest), de taille fixe. 
+Une fonction de hachage est caractérisée par les propriétés suivantes :
+	Il est impossible de construire un message à partir de sa valeur de hachage.
+	La modification d’un message donne lieu systématiquement à une autre valeur de hachage.
+	Il est impossible de trouver deux messages différents ayant la même valeur de hachage.
+La liste des fonctions de hachage les plus utilisées inclue les suivants:
+	MD5: permet de créer des empreintes numériques de taille 128-bit.
+	SHA-1: permet de créer des empreintes numériques de taille 160-bit.
+	SHA-2: permet de créer des empreintes numériques de taille entre 224 bits et 512 bits.
+3.5	Les codes HMAC
+Les codes HMAC (Hash-based Message Authentication Code) permettent de calculer une empreinte numérique  en utilisant les fonctions de hachages existantes combinées avec une clé secrète partagée. Cela permet de fournir l'assurance de l'authentification ainsi que l'intégrité des données.
+La société « Cisco »  utilise deux fonctions HMAC :
+	HMAC-MD5 à clé partagée, basé sur l'algorithme de hachage MD5
+	HMAC-SHA-1 à clé partagée, basé sur l'algorithme de hachage SHA-1
+3.6	La cryptographie asymétrique
+a-	Présentation
+La cryptographie asymétrique est un procédé qui se base sur une paire de clés (clé publique et clé privée) pour le chiffrement et le déchiffrement de données. En effet, les deux clés sont capables de chiffrer les données. Toutefois, la clé complémentaire est nécessaire pour leur déchiffrement.
+La cryptographie asymétrique se base sur des algorithmes mathématiques complexes et, par conséquent, il prend plus de temps de calcul comparé aux algorithmes symétriques.
+La cryptographie asymétrique est utilisée pour accomplir la confidentialité et l'authentification.
+
+
+b-	Fonctionnement
+Confidentialité	La confidentialité  clé publique (chiffrer) + clé privée (déchiffrer)
+	La clé publique est utilisée pour chiffrer; la clé privée correspondante est utilisée pour déchiffrer.
+	Étant donné que la clé privée n'est présente que sur un seul système, la confidentialité est assurée avec ce processus.
+	Ce scénario est souvent utilisé pour l'échange de clés.
+Authentification	L’authentification  clé privée (chiffrer) + clé publique (déchiffrer)
+	La clé privée est utilisée pour chiffrer; la clé publique correspondante est utilisée pour déchiffrer.
+	Étant donné que la clé privée n'est présente que sur un seul système, l'authentification est assurée lorsque sa clé publique décrypte le Message.
+
+•	Le schéma suivant présente la procédure pour assurer la confidentialité :
+ 
+Figure 13 : seul A peut lire le message envoyé par B.
+•	Le schéma suivant présente la procédure pour assurer l’authentification :
+
+ 
+Figure 14 : seul A peut avoir envoyé ce message.
+ 
+3.7	Les signatures numériques
+3.7.1	Présentation
+La signature numérique permet de s’assurer de l'intégrité d'un document électronique et d'en authentifier l'auteur. Elle est caractérisée par les propriétés suivantes:
+	Elle ne peut pas être falsifiée.
+	Elle fait partie du document signé et ne peut pas être déplacée sur un autre document.
+	Un document signé ne peut plus être modifié.
+Une signature numérique fournit trois fonctions de sécurité
+	L’authenticité du signataire : l'identité du signataire a été approuvée de manière certaine.
+	L’intégrité des données : les signatures numériques garantissent que le document est resté intact depuis son envoi.
+	La non-répudiation : le signataire ne peut pas répudier la signature du document.
+3.7.2	Fonctionnement
+Le processus de validation d’un document signé, envoyé de l’utilisateur A vers l’utilisateur B, peut être résumé comme suit : 
+
+•	Etape 1 : la signature du document
+Le premier utilisateur « A » va procéder à :
+1. générer une clé privée Kpr et une clé publique Kpb.
+2. calculer la valeur de hachage du document grâce à une fonction de hachage H.
+3. crypter la valeur de hachage avec sa clé privée Kpr.
+4. envoyer les éléments suivants au destinataire « B » :
+	La clé publique Kpb.
+	Le document.
+	La fonction H
+	La valeur de hachage cryptée.
+
+ 
+
+Figure 15 : la signature du document.
+•	Etape 2 : la vérification du document signé
+Le premier utilisateur « B » va procéder à :
+1. déchiffrer la valeur de hachage en utilisant la clé publique Kpb.
+2. calculer la valeur de hachage du document en utilisant la fonction de hachage H.
+3. comparer l'empreinte générée par le document et celle déchiffrée, précédemment, par la clé publique Kpb. Si les deux empreintes sont identiques, la signature est validée.
+ 
+Figure 16 : la vérification du document signé.
+
